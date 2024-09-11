@@ -2,4 +2,4 @@
 ![Static Badge](https://img.shields.io/badge/License%3A%20MIT-black)
 ![Static Badge](https://img.shields.io/badge/Platform%3A%20LINUX-black)
 ![python_app workflow](https://github.com/UddharshV/CSC510_HWPractice/actions/workflows/python-app.yml/badge.svg)
-![Codecov](https://img.shields.io/codecov/c/github/UddharshV/CSC510_HWPractice)
+[![codecov](https://codecov.io/gh/UddharshV/CSC510_HWPractice/graph/badge.svg?token=FI9JM8SH4T)](https://codecov.io/gh/UddharshV/CSC510_HWPractice)
