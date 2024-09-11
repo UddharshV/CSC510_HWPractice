@@ -47,8 +47,9 @@ jobs:
       run: tox -e py
     - name: Upload pytest test results
       uses: actions/upload-artifact@v4
+      # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}
       with:
         name: pytest-results-${{env.python-version }}
         path: junit/test-results-${{env.python-version }}.xml
-        # Use always() to always run this step to publish test results when there are test failures
-        if: ${{ always() }}
+        
