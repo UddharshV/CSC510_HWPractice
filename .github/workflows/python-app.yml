@@ -31,7 +31,7 @@ jobs:
     - name: Install dependencies #You can use pip to install dependencies from the PyPI package registry before building and testing your code. 
       run: |
         python -m pip install --upgrade pip
-        pip install --upgrade ruff pytest pytest-cov tox autopep8 pyflakes pylint codeclimate-pylint
+        pip install --upgrade ruff pytest pytest-cov tox autopep8 pyflakes pylint
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       #After you update pip, a typical next step is to install dependencies from requirements.txt.
     - name: Lint with Ruff
