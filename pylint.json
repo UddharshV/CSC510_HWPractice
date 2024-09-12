@@ -1,0 +1,15 @@
+[
+    {
+        "type": "convention",
+        "module": "hw2_debugging",
+        "obj": "",
+        "line": 44,
+        "column": 0,
+        "endLine": null,
+        "endColumn": null,
+        "path": "post_traces/hw2_debugging.py",
+        "symbol": "missing-final-newline",
+        "message": "Final newline missing",
+        "message-id": "C0304"
+    }
+]

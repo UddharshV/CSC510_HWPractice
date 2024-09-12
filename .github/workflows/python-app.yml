@@ -31,7 +31,7 @@ jobs:
     - name: Install dependencies #You can use pip to install dependencies from the PyPI package registry before building and testing your code. 
       run: |
         python -m pip install --upgrade pip
-        pip install --upgrade ruff pytest pytest-cov tox autopep8 pyflakes pylint
+        pip install --upgrade ruff pytest pytest-cov tox autopep8 pyflakes pylint codeclimate-pylint
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       #After you update pip, a typical next step is to install dependencies from requirements.txt.
     - name: Lint with Ruff
@@ -61,4 +61,9 @@ jobs:
     - name: Run Pyflakes on all Python files and save output
       run: find post_traces -name '*.py' -exec pyflakes {} + > pyflakes_output.txt
     - name: Run Pylint on all Python files and save output
-      run: find post_traces -name '*.py' -exec pylint {} + > pylint_output.txt
+      run: find post_traces -name '*.py' -exec pylint --output-format=json {} + > pylint.json || true > pylint_output.txt
+    - name: Analyze with Code Climate
+      uses: codeclimate-action/analyze@v2
+      with:
+        repo-token: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
+        file: pylint.json

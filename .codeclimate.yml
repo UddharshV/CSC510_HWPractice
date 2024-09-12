@@ -1,0 +1,6 @@
+version: '2'
+plugins:  
+  pylint:    
+    enabled: true    
+    channel: "stable"    
+    config: ".pylintrc"
