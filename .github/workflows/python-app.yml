@@ -62,7 +62,7 @@ jobs:
       run: find post_traces -name '*.py' -exec pyflakes {} + > pyflakes_output.txt
     - name: Run Pylint on all Python files and save output
       run: |
-        find post_traces -name '*.py' -exec pylint --output-format=json {} + > pylint.json || true > pylint_output.txt
+        pylint post_traces --output-format=json > pylint_output.json
         pylint_score=$(jq '.[0].score' pylint_output.json)
         echo "Pylint Score: $pylint_score" > pylint_score.txt
         echo "Pylint score: $pylint_score"
