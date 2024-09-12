@@ -20,7 +20,7 @@ class TestMergeSort(unittest.TestCase):
         This module for merge sort use unsorted array as input.
         """
         self.assertEqual(merge_sort([1,2,3,4,5]), [1, 2, 3, 4, 5])
-    def test_best_case(self):
+    def test_worst_case(self):
         """
         This module for merge sort use unsorted array as input.
         """
