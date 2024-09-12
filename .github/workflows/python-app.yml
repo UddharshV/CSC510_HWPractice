@@ -62,13 +62,3 @@ jobs:
       run: find post_traces -name '*.py' -exec pyflakes {} + > pyflakes_output.txt
     - name: Run Pylint on all Python files and save output
       run: find post_traces -name '*.py' -exec pylint --output-format=json {} + > pylint.json || true > pylint_output.txt
-    - name: Install Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '2.7'
-    - name: Install Code Climate CLI
-      run: gem install codeclimate
-    - name: Analyze with Code Climate
-      run: codeclimate analyze -f pylint -o pylint.json
-      env:
-        CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
