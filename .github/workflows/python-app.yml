@@ -66,17 +66,3 @@ jobs:
         pylint_score=$(jq '.[0].score' pylint_output.json)
         echo "Pylint Score: $pylint_score" > pylint_score.txt
         echo "Pylint score: $pylint_score"
-    - name: Upload Pylint score
-      uses: actions/upload-artifact@v4
-      with:
-        name: pylint-score
-        path: pylint_score.txt
-    - name: Generate Pylint Badge
-      run: |
-        pylint_score=$(cat pylint_score.txt)
-        curl -o pylint_badge.svg "https://img.shields.io/badge/pylint-${pylint_score}-brightgreen"
-        git config --global user.email "Uddharshvasili2000@gmail.com"
-        git config --global user.name "UddharshV"
-        git add pylint_badge.svg
-        git commit -m "Add updated Pylint badge with score ${pylint_score}"
-        git push
