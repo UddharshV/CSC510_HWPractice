@@ -62,15 +62,3 @@ jobs:
       run: find post_traces -name '*.py' -exec pyflakes {} + > pyflakes_output.txt
     - name: Run Pylint on all Python files and save output
       run: find post_traces -name '*.py' -exec pylint --output-format=json {} + > pylint.json || true > pylint_output.txt
-    - name: Extract pylint score
-      id: extract_score
-      run: |
-        SCORE=$(jq '.stats.global_note' < pylint.json)
-        echo "PYLINT_SCORE=$SCORE" >> $GITHUB_ENV
-    - name: Create Badge
-      uses: devops-infra/action-badge@v1
-      with:
-        name: Pylint
-        value: ${{ env.PYLINT_SCORE }}
-        color: brightgreen
-        path: pylint-badge.svg
